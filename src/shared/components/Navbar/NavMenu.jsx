@@ -22,11 +22,17 @@ const NAV_LINKS = [
 	{
 		id: 4,
 		exact: true,
+		to: '/events',
+		text: 'Events'
+	},
+	{
+		id: 5,
+		exact: true,
 		to: '/login',
 		text: 'Login'
 	},
 	{
-		id: 5,
+		id: 6,
 		exact: true,
 		to: '/admin',
 		text: 'Admin'
@@ -35,7 +41,7 @@ const NAV_LINKS = [
 
 function NavMenu({ type }) {
 	return (
-		<div className="w-full pt-6 md:w-1/3 md:pt-0">
+		<div className="w-full pt-6 xl:w-1/3 md:pt-0">
 			<ul
 				className={`flex ${
 					type === 'col' ? 'flex-col' : 'flex-row'

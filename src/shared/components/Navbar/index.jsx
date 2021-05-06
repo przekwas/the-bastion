@@ -18,9 +18,9 @@ function Navbar() {
 			<div className="flex items-center justify-between md:container md:mx-auto">
 				<NavBrand />
 				{!isPageWide ? (
-					<div className="text-4xl" onClick={() => setOpen(!open)}>
+					<button className="text-4xl" onClick={() => setOpen(!open)}>
 						<GiHamburgerMenu />
-					</div>
+					</button>
 				) : (
 					<NavMenu type="row" />
 				)}

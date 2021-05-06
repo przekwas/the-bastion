@@ -26,6 +26,12 @@ function Routes() {
 			<Route exact path="/locations/:locationid">
 				{() => <h1>character</h1>}
 			</Route>
+			<Route exact path="/events">
+				{() => <h1>events</h1>}
+			</Route>
+			<Route exact path="/events/:eventid">
+				{() => <h1>events</h1>}
+			</Route>
 			<Route path="*">{() => <h1>404</h1>}</Route>
 		</Switch>
 	);
