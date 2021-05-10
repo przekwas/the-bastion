@@ -1,9 +1,8 @@
-import { useContext } from 'react';
+import { useAuth } from '../../hooks/useAuth';
 import { Route, Redirect } from 'react-router-dom';
-import { AuthContext } from '../../utils/auth-context';
 
 function PrivateRoute({ children, ...rest }) {
-	const authenticated = useContext(AuthContext);
+	const { authenticated } = useAuth();
 
 	return authenticated ? (
 		<Route {...rest}>{children}</Route>

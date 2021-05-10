@@ -5,9 +5,8 @@ async function login({ email, password }) {
 	try {
 		const token = await baseService.post('/auth/login', { email, password });
 		setToken(token);
-		return true;
 	} catch (error) {
-		return false;
+		throw error;
 	}
 }
 

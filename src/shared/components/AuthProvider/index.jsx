@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { AuthContext } from '../../utils/auth-context';
+import * as tokenService from '../../services/token';
 import LoaderCard from '../LoaderCard';
 
 function AuthProvider({ children }) {
@@ -9,10 +10,20 @@ function AuthProvider({ children }) {
 	});
 
 	useEffect(() => {
-		setAuthState({
-			authenticated: false,
-			checking: false
-		});
+		tokenService
+			.validate()
+			.then(() => {
+				setAuthState({
+					authenticated: true,
+					checking: false
+				});
+			})
+			.catch(() => {
+				setAuthState({
+					authenticated: false,
+					checking: false
+				});
+			});
 	}, []);
 
 	if (authState.checking) {
@@ -25,7 +36,9 @@ function AuthProvider({ children }) {
 		);
 	}
 
-	return <AuthContext.Provider value={authState.authenticated}>{children}</AuthContext.Provider>;
+	return (
+		<AuthContext.Provider value={[authState, setAuthState]}>{children}</AuthContext.Provider>
+	);
 }
 
 export default AuthProvider;

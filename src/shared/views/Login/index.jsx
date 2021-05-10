@@ -1,13 +1,21 @@
+import { useHistory } from 'react-router-dom';
 import { useForm } from '../../hooks/useForm';
+import { useAuth } from '../../hooks/useAuth';
 import { GiScrollUnfurled, GiLockedFortress } from 'react-icons/gi';
 import { Button, FormLabel, FormInput } from '../../components';
 import InputGroup from './LoginGroup';
+import * as usersService from '../../services/user';
 
 function Login() {
+	const history = useHistory();
+	const { success } = useAuth();
 	const { values, handleChanges, handleSubmit } = useForm(handleLogin);
 
 	function handleLogin() {
-		console.log('[login]', values);
+		usersService
+			.login(values)
+			.then(() => success('/profile'))
+			.catch(e => history.push('/fuck', e.message));
 	}
 
 	return (

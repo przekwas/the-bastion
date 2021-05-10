@@ -1,14 +1,16 @@
 import { getToken } from '../utils/storage';
 
+const ROOT_URL = 'http://localhost:3000/dev';
+
 function makeFetch(url, info) {
-	return fetch(url, info);
+	return fetch(ROOT_URL + url, info);
 }
 
 async function json(url, method = 'GET', body = {}) {
 	const TOKEN = getToken();
-	const headers = new Headers({
+	const headers = {
 		'Content-Type': 'application/json'
-	});
+	};
 	const data = {
 		method,
 		headers,
@@ -27,18 +29,13 @@ async function json(url, method = 'GET', body = {}) {
 	try {
 		const response = await makeFetch(url, data);
 		if (response.ok) {
-			const contentType = response.headers.get('Content-Type');
-
-			if (contentType.indexOf('application/json') > -1) {
-				return response.json();
-			}
-
-			return response.statusText;
+			return response.json();
 		} else {
-			throw new Error('something is fucked');
+			const error = await response.json();
+			throw new Error(error.message);
 		}
 	} catch (error) {
-		console.log('[error in fetch]', error.message);
+		console.log('[error in fetch]', error);
 		throw error;
 	}
 }

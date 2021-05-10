@@ -14,6 +14,9 @@ function Routes() {
 			<PrivateRoute exact path="/admin">
 				{() => <h1>admin</h1>}
 			</PrivateRoute>
+			<PrivateRoute exact path="/profile">
+				{() => <h1>profile</h1>}
+			</PrivateRoute>
 			<Route exact path="/characters">
 				{() => <h1>character</h1>}
 			</Route>
@@ -31,6 +34,9 @@ function Routes() {
 			</Route>
 			<Route exact path="/events/:eventid">
 				{() => <h1>events</h1>}
+			</Route>
+			<Route exact path="/fuck">
+				{() => <h1>fuck</h1>}
 			</Route>
 			<Route path="*">{() => <h1>404</h1>}</Route>
 		</Switch>
