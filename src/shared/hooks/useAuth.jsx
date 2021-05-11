@@ -1,12 +1,13 @@
 import { useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import { AuthContext } from '../utils/auth-context';
+import { clearToken } from '../utils/storage';
 
 export function useAuth() {
 	const history = useHistory();
 	const [authState, setAuthState] = useContext(AuthContext);
 
-	const success = path => {
+	const signin = path => {
 		setAuthState({
 			checking: false,
 			authenticated: true
@@ -14,17 +15,18 @@ export function useAuth() {
 		history.push(path);
 	};
 
-	const logout = path => {
+	const logout = () => {
 		setAuthState({
 			checking: false,
 			authenticated: false
 		});
-		history.push(path);
+		clearToken();
+		history.push('/');
 	};
 
 	return {
 		authenticated: authState.authenticated,
-		success,
+		signin,
 		logout
 	};
 }

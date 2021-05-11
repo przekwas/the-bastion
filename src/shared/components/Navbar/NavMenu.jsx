@@ -1,4 +1,5 @@
 import NavItem from './NavItem';
+import { useAuth } from '../../hooks/useAuth';
 
 const NAV_LINKS = [
 	{
@@ -28,18 +29,14 @@ const NAV_LINKS = [
 	{
 		id: 5,
 		exact: true,
-		to: '/login',
-		text: 'Login'
-	},
-	{
-		id: 6,
-		exact: true,
 		to: '/admin',
 		text: 'Admin'
 	}
 ];
 
 function NavMenu({ type }) {
+	const { logout } = useAuth();
+	
 	return (
 		<div className="w-full pt-6 xl:w-1/3 md:pt-0">
 			<ul
@@ -49,6 +46,12 @@ function NavMenu({ type }) {
 				{NAV_LINKS.map(item => (
 					<NavItem key={`nav-item-${item.id}`} {...item} />
 				))}
+				<NavItem exact={true} to="/login" text="Login" />
+				<li className="py-4 text-indigo-200">
+					<button onClick={logout} className="px-4 py-2 font-medium rounded-md hover:bg-indigo-600 hover:text-white focus:outline-none">
+						Logout
+					</button>
+				</li>
 			</ul>
 		</div>
 	);

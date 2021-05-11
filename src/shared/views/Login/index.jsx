@@ -1,25 +1,26 @@
-import { useHistory } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 import { useForm } from '../../hooks/useForm';
 import { useAuth } from '../../hooks/useAuth';
 import { GiScrollUnfurled, GiLockedFortress } from 'react-icons/gi';
-import { Button, FormLabel, FormInput } from '../../components';
+import { Button, FormLabel, FormInput, Alert, BasePage } from '../../components';
 import InputGroup from './LoginGroup';
 import * as usersService from '../../services/user';
 
 function Login() {
 	const history = useHistory();
-	const { success } = useAuth();
+	const { state } = useLocation();
+	const { signin } = useAuth();
 	const { values, handleChanges, handleSubmit } = useForm(handleLogin);
 
 	function handleLogin() {
 		usersService
 			.login(values)
-			.then(() => success('/profile'))
+			.then(() => signin('/profile'))
 			.catch(e => history.push('/fuck', e.message));
 	}
 
 	return (
-		<div className="flex items-center justify-center px-2 mx-auto mt-10 md:px-0 md:w-2/3 lg:w-1/2 xl:w-1/3">
+		<BasePage>
 			<form className="flex flex-col items-center justify-center w-full">
 				<div className="w-full mb-6">
 					<FormLabel htmlFor="email">Email</FormLabel>
@@ -47,11 +48,12 @@ function Login() {
 						/>
 					</InputGroup>
 				</div>
-				<Button color="blue" className="w-2/3 mt-4" onClick={handleSubmit}>
+				<Button color="blue" className="w-2/3 mt-5" onClick={handleSubmit}>
 					Login
 				</Button>
+				{state && <Alert color="red">{state}</Alert>}
 			</form>
-		</div>
+		</BasePage>
 	);
 }
 
