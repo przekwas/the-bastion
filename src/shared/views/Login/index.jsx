@@ -1,9 +1,10 @@
+import { useEffect } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import { useForm } from '../../hooks/useForm';
 import { useAuth } from '../../hooks/useAuth';
 import { GiScrollUnfurled, GiLockedFortress } from 'react-icons/gi';
-import { Button, FormLabel, FormInput, Alert, BasePage } from '../../components';
-import InputGroup from './LoginGroup';
+import { Button, FormLabel, FormInput, BasePage, Toast } from '../../components';
+import InputGroup from './InputGroup';
 import * as usersService from '../../services/user';
 
 function Login() {
@@ -18,6 +19,12 @@ function Login() {
 			.then(() => signin('/profile'))
 			.catch(e => history.push('/fuck', e.message));
 	}
+
+	useEffect(() => {
+		if (!state) return;
+
+		Toast.error(state);
+	}, [state]);
 
 	return (
 		<BasePage>
@@ -51,7 +58,6 @@ function Login() {
 				<Button color="blue" className="w-2/3 mt-5" onClick={handleSubmit}>
 					Login
 				</Button>
-				{state && <Alert color="red">{state}</Alert>}
 			</form>
 		</BasePage>
 	);
