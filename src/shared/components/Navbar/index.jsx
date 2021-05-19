@@ -22,12 +22,12 @@ function Navbar() {
 						<GiHamburgerMenu />
 					</button>
 				) : (
-					<NavMenu type="row" />
+					<NavMenu type="row" closeMenu={() => setOpen(false)} />
 				)}
 			</div>
-			{open && <NavMenu type="col" />}
+			{open && <NavMenu type="col" closeMenu={() => setOpen(false)} />}
 		</NavBase>
 	);
-};
+}
 
 export default Navbar;

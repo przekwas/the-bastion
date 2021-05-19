@@ -36,7 +36,7 @@ const NAV_LINKS = [
 	}
 ];
 
-function NavMenu({ type }) {
+function NavMenu({ type, closeMenu }) {
 	const { logout, authenticated } = useAuth();
 
 	const handleLogout = () => {
@@ -55,6 +55,7 @@ function NavMenu({ type }) {
 		}).then(result => {
 			if (result.isConfirmed) {
 				logout();
+				closeMenu();
 			}
 		});
 	};
@@ -66,10 +67,10 @@ function NavMenu({ type }) {
 					type === 'col' ? 'flex-col' : 'flex-row'
 				} items-center justify-around`}>
 				{NAV_LINKS.map(item => (
-					<NavItem key={`nav-item-${item.id}`} {...item} />
+					<NavItem key={`nav-item-${item.id}`} {...item} closeMenu={closeMenu} />
 				))}
 				{authenticated ? (
-					<li className="py-4 text-indigo-200">
+					<li className="text-indigo-200 ">
 						<button
 							onClick={handleLogout}
 							className="px-4 py-2 font-medium rounded-md hover:bg-indigo-600 hover:text-white focus:outline-none">
@@ -77,7 +78,7 @@ function NavMenu({ type }) {
 						</button>
 					</li>
 				) : (
-					<NavItem exact={true} to="/login" text="Login" />
+					<NavItem exact={true} to="/login" text="Login" closeMenu={closeMenu} />
 				)}
 			</ul>
 		</div>
