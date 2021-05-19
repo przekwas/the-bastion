@@ -1,6 +1,6 @@
 import { getToken } from '../utils/storage';
 
-const ROOT_URL = 'http://localhost:3000/dev';
+const ROOT_URL = 'http://localhost:3000/dev'; // tiny-projects-api.herokuapp/v1
 
 function makeFetch(url, info) {
 	return fetch(ROOT_URL + url, info);

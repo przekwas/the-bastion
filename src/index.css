@@ -3,11 +3,59 @@
 @tailwind utilities;
 
 @layer components {
+	.btn {
+		@apply px-4 py-2 font-semibold text-white rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-opacity-75;
+	}
+
 	.btn-indigo {
-		@apply px-4 py-2 font-semibold text-white bg-indigo-500 rounded-lg shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-opacity-75;
+		@apply bg-indigo-500  hover:bg-indigo-700 focus:ring-indigo-400 !important;
+	}
+
+	.btn-purple {
+		@apply bg-purple-500  hover:bg-purple-700 focus:ring-purple-400 !important;
+	}
+
+	.btn-pink {
+		@apply bg-pink-500  hover:bg-pink-700 focus:ring-pink-400 !important;
+	}
+
+	.btn-gray {
+		@apply bg-gray-500  hover:bg-gray-700 focus:ring-gray-400 !important;
 	}
 
 	.btn-blue {
-		@apply px-4 py-2 font-semibold text-white bg-blue-500 rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75;
+		@apply bg-blue-500 hover:bg-blue-700 focus:ring-blue-400 !important;
+	}
+
+	.btn-red {
+		@apply bg-red-500 hover:bg-red-700 focus:ring-red-400 !important;
+	}
+
+	.btn-yellow {
+		@apply bg-yellow-500 hover:bg-yellow-700 focus:ring-yellow-400 !important;
+	}
+
+	.btn-green {
+		@apply bg-green-500 hover:bg-green-700 focus:ring-green-400 !important;
+	}
+
+	.toast-error {
+		@apply bg-red-700 text-red-50 border-l-8 border-red-500 !important;
+	}
+
+	.toast-error-progress {
+		@apply bg-red-400 !important;
+	}
+
+	.toast-success {
+		@apply bg-green-700 text-green-50 border-l-8 border-green-500 !important;
+	}
+
+	.toast-success-progress {
+		@apply bg-green-400 !important;
+	}
+
+	.logout-modal-popup {
+		@apply bg-indigo-50 !important;
 	}
 }

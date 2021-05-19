@@ -7,3 +7,4 @@ export { default as LoaderCard } from './LoaderCard';
 export { default as Navbar } from './Navbar';
 export { default as PrivateRoute } from './PrivateRoute';
 export { default as Toast } from './Toast';
+export { default as Modal } from './Modal';

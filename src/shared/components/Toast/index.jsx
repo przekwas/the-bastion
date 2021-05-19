@@ -1,4 +1,4 @@
-import { GiMineExplosion, GiSave } from 'react-icons/gi';
+import { GiSwordBreak, GiSpellBook } from 'react-icons/gi';
 import { toast } from 'react-toastify';
 
 const ToastCard = ({ message, icon }) => {
@@ -11,15 +11,15 @@ const ToastCard = ({ message, icon }) => {
 };
 
 const error = message =>
-	toast.error(<ToastCard message={message} icon={<GiMineExplosion className="text-6xl" />} />, {
-		className: 'bg-red-900 text-red-200 border-l-8 border-red-500',
-		progressClassName: 'bg-green-600'
+	toast.error(<ToastCard message={message} icon={<GiSwordBreak className="text-6xl" />} />, {
+		className: 'toast-error',
+		progressClassName: 'toast-error-progress'
 	});
 
 const success = message =>
-	toast.success(<ToastCard message={message} icon={<GiSave className="text-4xl" />} />, {
-		className: 'bg-green-900 text-green-200 border-l-8 border-green-500',
-		progressClassName: 'bg-green-600'
+	toast.success(<ToastCard message={message} icon={<GiSpellBook className="text-6xl" />} />, {
+		className: 'toast-success',
+		progressClassName: 'toast-success-progress'
 	});
 
 const Toast = {

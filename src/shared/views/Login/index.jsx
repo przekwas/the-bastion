@@ -10,8 +10,11 @@ import * as usersService from '../../services/user';
 function Login() {
 	const history = useHistory();
 	const { state } = useLocation();
-	const { signin } = useAuth();
-	const { values, handleChanges, handleSubmit } = useForm(handleLogin);
+	const { signin, authenticated } = useAuth();
+	const { values, handleChanges, handleSubmit } = useForm(handleLogin, {
+		email: 'test@test.com',
+		password: 'password123'
+	});
 
 	function handleLogin() {
 		usersService
@@ -20,6 +23,14 @@ function Login() {
 			.catch(e => history.push('/fuck', e.message));
 	}
 
+	// already logged in check
+	useEffect(() => {
+		if (authenticated) {
+			history.push('/profile');
+		}
+	}, [authenticated]);
+
+	// redirected check
 	useEffect(() => {
 		if (!state) return;
 

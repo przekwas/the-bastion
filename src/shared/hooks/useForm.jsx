@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
-export function useForm(callback) {
-	const [values, setValues] = useState({});
+export function useForm(callback, initialState = {}) {
+	const [values, setValues] = useState(initialState);
 
 	const handleChanges = e => {
 		setValues(prev => ({ ...prev, [e.target.name]: e.target.value }));
