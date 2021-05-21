@@ -9,6 +9,8 @@
 		"@testing-library/user-event": "^12.8.3",
 		"autoprefixer": "^9.8.6",
 		"dayjs": "^1.10.4",
+		"express": "^4.17.1",
+		"express-favicon": "^2.0.1",
 		"postcss": "^7.0.35",
 		"react": "^17.0.2",
 		"react-dom": "^17.0.2",
@@ -27,7 +29,8 @@
 		"start": "craco start",
 		"build": "craco build",
 		"test": "craco test",
-		"eject": "react-scripts eject"
+		"eject": "react-scripts eject",
+		"serve": "node server.js"
 	},
 	"eslintConfig": {
 		"extends": [
