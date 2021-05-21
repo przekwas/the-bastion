@@ -1,6 +1,6 @@
 import { Switch, Route } from 'react-router-dom';
 import { PrivateRoute } from '../shared/components';
-import { Login } from '../shared/views';
+import { Login, Characters, Errors } from '../shared/views';
 
 function Routes() {
 	return (
@@ -18,7 +18,7 @@ function Routes() {
 				{() => <h1>profile</h1>}
 			</PrivateRoute>
 			<Route exact path="/characters">
-				{() => <h1>character</h1>}
+				<Characters />
 			</Route>
 			<Route exact path="/characters/:characterid">
 				{() => <h1>character</h1>}
@@ -36,7 +36,7 @@ function Routes() {
 				{() => <h1>events</h1>}
 			</Route>
 			<Route exact path="/fuck">
-				{() => <h1>fuck</h1>}
+				<Errors />
 			</Route>
 			<Route path="*">{() => <h1>404</h1>}</Route>
 		</Switch>

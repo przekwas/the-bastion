@@ -31,8 +31,9 @@ async function json(url, method = 'GET', body = {}) {
 		if (response.ok) {
 			return response.json();
 		} else {
-			const error = await response.json();
-			throw new Error(error.message);
+			const errorResponse = await response.json();
+			console.log(errorResponse);
+			throw new Error(errorResponse.error.message);
 		}
 	} catch (error) {
 		console.log('[error in fetch]', error);

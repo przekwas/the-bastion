@@ -27,12 +27,6 @@ const NAV_LINKS = [
 		exact: true,
 		to: '/events',
 		text: 'Events'
-	},
-	{
-		id: 5,
-		exact: true,
-		to: '/admin',
-		text: 'Admin'
 	}
 ];
 
@@ -48,6 +42,7 @@ function NavMenu({ type, closeMenu }) {
 			showCancelButton: true,
 			confirmButtonText: 'Logout',
 			customClass: {
+				footer: 'logout-modal-footer',
 				popup: 'logout-modal-popup',
 				confirmButton: 'btn btn-pink',
 				cancelButton: 'btn btn-gray'
@@ -70,13 +65,16 @@ function NavMenu({ type, closeMenu }) {
 					<NavItem key={`nav-item-${item.id}`} {...item} closeMenu={closeMenu} />
 				))}
 				{authenticated ? (
-					<li className="text-indigo-200 ">
-						<button
-							onClick={handleLogout}
-							className="px-4 py-2 font-medium rounded-md hover:bg-indigo-600 hover:text-white focus:outline-none">
-							Logout
-						</button>
-					</li>
+					<>
+						<NavItem exact to="/admin" text="Admin" closeMenu={closeMenu} />
+						<li className="text-indigo-200 ">
+							<button
+								onClick={handleLogout}
+								className="px-4 py-2 font-medium rounded-md hover:bg-indigo-600 hover:text-white focus:outline-none">
+								Logout
+							</button>
+						</li>
+					</>
 				) : (
 					<NavItem exact={true} to="/login" text="Login" closeMenu={closeMenu} />
 				)}

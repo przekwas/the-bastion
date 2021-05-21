@@ -58,4 +58,8 @@
 	.logout-modal-popup {
 		@apply bg-indigo-50 !important;
 	}
+
+	.logout-modal-footer {
+		@apply border-indigo-500 !important;
+	}
 }
