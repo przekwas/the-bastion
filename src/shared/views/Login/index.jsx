@@ -28,7 +28,7 @@ function Login() {
 		if (authenticated) {
 			history.push('/profile');
 		}
-	}, [authenticated]);
+	}, [authenticated, history]);
 
 	// redirected check
 	useEffect(() => {

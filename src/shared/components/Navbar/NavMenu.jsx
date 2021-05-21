@@ -16,18 +16,18 @@ const NAV_LINKS = [
 		to: '/characters',
 		text: 'Characters'
 	},
-	{
-		id: 3,
-		exact: false,
-		to: '/locations',
-		text: 'Locations'
-	},
-	{
-		id: 4,
-		exact: true,
-		to: '/events',
-		text: 'Events'
-	}
+	// {
+	// 	id: 3,
+	// 	exact: false,
+	// 	to: '/locations',
+	// 	text: 'Locations'
+	// },
+	// {
+	// 	id: 4,
+	// 	exact: true,
+	// 	to: '/events',
+	// 	text: 'Events'
+	// }
 ];
 
 function NavMenu({ type, closeMenu }) {
@@ -64,7 +64,7 @@ function NavMenu({ type, closeMenu }) {
 				{NAV_LINKS.map(item => (
 					<NavItem key={`nav-item-${item.id}`} {...item} closeMenu={closeMenu} />
 				))}
-				{authenticated ? (
+				{/* {authenticated ? (
 					<>
 						<NavItem exact to="/admin" text="Admin" closeMenu={closeMenu} />
 						<li className="text-indigo-200 ">
@@ -77,7 +77,7 @@ function NavMenu({ type, closeMenu }) {
 					</>
 				) : (
 					<NavItem exact={true} to="/login" text="Login" closeMenu={closeMenu} />
-				)}
+				)} */}
 			</ul>
 		</div>
 	);

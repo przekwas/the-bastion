@@ -1,6 +1,6 @@
 import { getToken } from '../utils/storage';
 
-const ROOT_URL = 'http://localhost:3000/dev'; // tiny-projects-api.herokuapp/v1
+const ROOT_URL = process.env.REACT_APP_ROOT_URL;
 
 function makeFetch(url, info) {
 	return fetch(ROOT_URL + url, info);

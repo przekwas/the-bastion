@@ -1,12 +1,12 @@
 import { Switch, Route } from 'react-router-dom';
 import { PrivateRoute } from '../shared/components';
-import { Login, Characters, Errors } from '../shared/views';
+import { Login, Characters, Errors, CharacterDetails, Home } from '../shared/views';
 
 function Routes() {
 	return (
 		<Switch>
 			<Route exact path="/">
-				{() => <h1>home</h1>}
+				<Home />
 			</Route>
 			<Route exact path="/login">
 				<Login />
@@ -21,7 +21,7 @@ function Routes() {
 				<Characters />
 			</Route>
 			<Route exact path="/characters/:characterid">
-				{() => <h1>character</h1>}
+				<CharacterDetails />
 			</Route>
 			<Route exact path="/locations">
 				{() => <h1>locations</h1>}

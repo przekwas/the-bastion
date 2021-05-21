@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import { useLocation } from 'react-router-dom';
-import { BasePage } from '../../components';
+import { BasePage, Button } from '../../components';
 import { GiScrollQuill } from 'react-icons/gi';
 
 function Errors() {
@@ -27,16 +27,17 @@ function Errors() {
 							autoCorrect="off"
 							autoCapitalize="off"
 							spellCheck="false"
+							readOnly={true}
 							className="flex w-full p-4 mb-5 font-mono text-sm text-gray-100 bg-gray-600 rounded"
 							ref={messageRef}
 							defaultValue={state}
 						/>
-						<button
-							onClick={copyToClipboard}
-							className="flex items-center self-start justify-between w-full px-2 py-4 btn btn-green">
-							<span>copy to clipboard</span>
-							<GiScrollQuill size="2rem" />
-						</button>
+						<Button onClick={copyToClipboard} color="green">
+							<div className="flex items-center justify-between">
+								<span className="mx-1 text-sm">copy to clipboard</span>
+								<GiScrollQuill className="mx-1 text-2xl" />
+							</div>
+						</Button>
 					</>
 				)}
 			</div>
