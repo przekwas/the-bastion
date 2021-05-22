@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 function CharacterCard({ character }) {
 	return (
-		<div className="p-4 mb-4 bg-gray-100 rounded">
+		<div className="px-4 py-6 mb-4 bg-gray-100 rounded">
 			<div className="flex items-center justify-between mb-4">
 				<div className="w-2/3">
 					<Link
@@ -16,7 +16,7 @@ function CharacterCard({ character }) {
 					<div className="flex flex-col text-xs font-semibold text-gray-500">
 						<span>{character.race}</span>
 						<span>
-							{character.class} {character.misc && <span> - {character.misc}</span>}
+							{character.class} {character.specialty && <span> - {character.specialty}</span>}
 						</span>
 					</div>
 				</div>

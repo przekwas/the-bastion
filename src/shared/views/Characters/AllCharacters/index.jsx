@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import { BasePage } from '../../components';
+import { BasePage } from '../../../components';
 import CharacterCard from './CharacterCard';
-import * as charactersService from '../../services/characters';
+import * as charactersService from '../../../services/characters';
 
-function Characters() {
+function AllCharacters() {
 	const history = useHistory();
 	const [characters, setCharacters] = useState([]);
 
@@ -31,4 +31,4 @@ function Characters() {
 	);
 }
 
-export default Characters;
+export default AllCharacters;
