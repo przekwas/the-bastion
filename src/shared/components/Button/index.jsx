@@ -1,6 +1,7 @@
 function Button({ color, className, onClick, children }) {
+	const type = `btn-${color}`;
 	return (
-		<button className={`btn-${color} ${className}`} onClick={onClick}>
+		<button className={`${type} ${className}`} onClick={onClick}>
 			{children}
 		</button>
 	);
