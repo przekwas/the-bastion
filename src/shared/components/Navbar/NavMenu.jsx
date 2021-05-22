@@ -38,8 +38,8 @@ function NavMenu({ type, closeMenu }) {
 			customClass: {
 				footer: 'logout-modal-footer',
 				popup: 'logout-modal-popup',
-				confirmButton: 'btn bg-pink-500 hover:bg-pink-700 focus:ring-pink-400',
-				cancelButton: 'btn bg-gray-500 hover:bg-gray-700 focus:ring-gray-400'
+				confirmButton: 'btn-pink',
+				cancelButton: 'btn-gray'
 			}
 		}).then(result => {
 			if (result.isConfirmed) {

@@ -26,7 +26,7 @@ function Login() {
 	// already logged in check
 	useEffect(() => {
 		if (authenticated) {
-			history.push('/profile');
+			history.push('/admin');
 		}
 	}, [authenticated, history]);
 
