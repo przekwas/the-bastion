@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import ReactMarkdown from 'react-markdown';
 
 function CharacterCard({ character }) {
 	return (
@@ -16,7 +17,8 @@ function CharacterCard({ character }) {
 					<div className="flex flex-col text-xs font-semibold text-gray-500">
 						<span>{character.race}</span>
 						<span>
-							{character.class} {character.specialty && <span> - {character.specialty}</span>}
+							{character.class}{' '}
+							{character.specialty && <span> - {character.specialty}</span>}
 						</span>
 					</div>
 				</div>
@@ -27,10 +29,8 @@ function CharacterCard({ character }) {
 						alt="character avatar"
 					/>
 				</div>
-			</div>
-			<div className="text-justify text-transparent bg-clip-text bg-gradient-to-b from-gray-900 to-gray-400">
-				{character.content.substring(0, 150)}...
-			</div>
+			</div>	
+			<ReactMarkdown className="prose-sm prose" children={character.content.substring(0, 150)} /> ...
 		</div>
 	);
 }

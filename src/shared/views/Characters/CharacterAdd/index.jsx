@@ -1,7 +1,11 @@
 import { useForm } from '../../../hooks/useForm';
+import { useHistory } from 'react-router-dom';
 import { BasePage, FormLabel, FormInput, Button, Toast } from '../../../components';
+import { GiAutoRepair } from 'react-icons/gi';
+import * as charactersService from '../../../services/characters';
 
 function CharacterAdd() {
+	const history = useHistory();
 	const { values, handleChanges, handleSubmit } = useForm(handleAddCharacter);
 
 	function handleAddCharacter() {
@@ -14,7 +18,10 @@ function CharacterAdd() {
 		} else if (!values.content) {
 			Toast.error('Content input is required');
 		} else {
-			console.log(values);
+			charactersService
+				.addNew(values)
+				.then(id => history.push(`/characters/${id}`, values))
+				.catch(e => history.push('/fuck', e.message));
 		}
 	}
 
@@ -25,7 +32,7 @@ function CharacterAdd() {
 					<div className="w-full mb-5 lg:pr-2">
 						<FormLabel>Name</FormLabel>
 						<FormInput
-							placeholder="Dwarf"
+							placeholder="Falstad Stormhammer"
 							value={values.name || ''}
 							name="name"
 							onChange={handleChanges}
@@ -34,7 +41,7 @@ function CharacterAdd() {
 					<div className="w-full">
 						<FormLabel>Race</FormLabel>
 						<FormInput
-							placeholder="Fighter"
+							placeholder="Dwarf"
 							value={values.race || ''}
 							name="race"
 							onChange={handleChanges}
@@ -46,7 +53,7 @@ function CharacterAdd() {
 					<div className="w-full mb-5 lg:pr-2">
 						<FormLabel>Class</FormLabel>
 						<FormInput
-							placeholder="Dwarf"
+							placeholder="Fighter"
 							value={values.class || ''}
 							name="class"
 							onChange={handleChanges}
@@ -66,7 +73,7 @@ function CharacterAdd() {
 				<div className="w-full mb-5">
 					<FormLabel>Avatar URL</FormLabel>
 					<FormInput
-						placeholder="http://imgur.com/1234"
+						placeholder="https://i.imgur.com/w1jkDyP.jpeg"
 						value={values.avatar_url || ''}
 						name="avatar_url"
 						onChange={handleChanges}
@@ -105,7 +112,9 @@ function CharacterAdd() {
 					</div>
 				</div>
 				<Button onClick={handleSubmit} color="blue" className="w-1/2 mx-auto mb-5">
-					Add Character
+					<span className="flex items-center justify-center ">
+							<GiAutoRepair className="mr-2" /> Add Character
+						</span>
 				</Button>
 			</form>
 		</BasePage>

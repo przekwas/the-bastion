@@ -2,10 +2,11 @@ import dayjs from 'dayjs';
 import { useState, useEffect } from 'react';
 import { useLocation, useParams, useHistory, Link } from 'react-router-dom';
 import { useAuth } from '../../../hooks/useAuth';
-import { BasePage, LoaderCard } from '../../../components';
 import { GiReturnArrow, GiSettingsKnobs } from 'react-icons/gi';
-import * as charactersService from '../../../services/characters';
+import { BasePage, LoaderCard } from '../../../components';
+import ReactMarkdown from 'react-markdown';
 import DisplayRow from './DisplayRow';
+import * as charactersService from '../../../services/characters';
 
 function CharacterDetails() {
 	const history = useHistory();
@@ -16,11 +17,12 @@ function CharacterDetails() {
 	const [options, setOptions] = useState(false);
 
 	useEffect(() => {
+		if (details) return;
 		charactersService
 			.getOne(characterid)
 			.then(data => setDetails(data))
 			.catch(e => history.push('/fuck', e.message));
-	}, [state, characterid, history]);
+	}, [state, details, characterid, history]);
 
 	if (!details) {
 		return (
@@ -108,7 +110,12 @@ function CharacterDetails() {
 						</DisplayRow>
 					</>
 				)}
-				<div className="my-5 tracking-wide">{details.content}</div>
+				<div className="w-full my-5">
+					<ReactMarkdown
+						className="prose-sm prose prose-blue lg:prose lg:prose-blue"
+						children={details.content}
+					/>
+				</div>
 			</div>
 		</BasePage>
 	);
