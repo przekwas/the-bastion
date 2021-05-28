@@ -1,10 +1,9 @@
 import { useEffect } from 'react';
-import { useHistory, useLocation } from 'react-router-dom';
+import { Redirect, useHistory, useLocation, Link } from 'react-router-dom';
 import { useForm } from '../../hooks/useForm';
 import { useAuth } from '../../hooks/useAuth';
 import { GiScrollUnfurled, GiLockedFortress, GiJusticeStar } from 'react-icons/gi';
-import { Button, FormLabel, FormInput, BasePage, Toast } from '../../components';
-import InputGroup from './InputGroup';
+import { Button, FormLabel, FormInput, BasePage, Toast, InputGroup } from '../../components';
 import * as usersService from '../../services/user';
 
 function Login() {
@@ -19,23 +18,32 @@ function Login() {
 	function handleLogin() {
 		usersService
 			.login(values)
-			.then(() => signin('/profile'))
+			.then(() => {
+				// route to admin dashboard by default
+				let route = '/admin';
+
+				// check to see if they came from a specific page
+				// to return to it after logging in
+				if (state && state.from !== '/') {
+					route = state.from;
+				}
+
+				signin(route);
+			})
 			.catch(e => history.push('/fuck', e.message));
 	}
 
-	// already logged in check
-	useEffect(() => {
-		if (authenticated) {
-			history.push('/admin');
-		}
-	}, [authenticated, history]);
-
 	// redirected check
 	useEffect(() => {
-		if (!state) return;
+		if (!state || !state.error) return;
 
-		Toast.error(state);
+		Toast.error(state.error);
 	}, [state]);
+
+	// already logged in check
+	if (authenticated) {
+		return <Redirect to="/admin" />;
+	}
 
 	return (
 		<BasePage>
@@ -66,10 +74,14 @@ function Login() {
 						/>
 					</InputGroup>
 				</div>
-				<Button color="blue" className="flex items-center justify-center w-2/3 mt-5" onClick={handleSubmit}>
+				<Button
+					color="blue"
+					className="flex items-center justify-center w-2/3 my-5"
+					onClick={handleSubmit}>
 					<GiJusticeStar className="mr-2 text-2xl" />
 					Login
 				</Button>
+				<Link to="/register" className="block my-10 text-sm text-indigo-600 underline justify-self-end">Don't have an account?  Create one!</Link>
 			</form>
 		</BasePage>
 	);

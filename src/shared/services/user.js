@@ -1,15 +1,22 @@
 import { setToken } from '../utils/storage';
 import * as baseService from './base';
 
-async function login({ email, password }) {
+async function login(payload) {
 	try {
-		const token = await baseService.post('/auth/login', { email, password });
+		const token = await baseService.post('/auth/login', payload);
 		setToken(token);
 	} catch (error) {
 		throw error;
 	}
 }
 
-export {
-    login
+async function register(payload) {
+	try {
+		const token = await baseService.post('/auth/register', payload);
+		setToken(token);
+	} catch (error) {
+		throw error;
+	}
 }
+
+export { login, register };

@@ -1,7 +1,8 @@
-import NavItem from './NavItem';
 import { useAuth } from '../../hooks/useAuth';
+import { useLocation } from 'react-router';
 import { Modal } from '../';
 import { GiDiceTwentyFacesOne } from 'react-icons/gi';
+import NavItem from './NavItem';
 
 const NAV_LINKS = [
 	{
@@ -25,6 +26,7 @@ const NAV_LINKS = [
 ];
 
 function NavMenu({ type, closeMenu }) {
+	const { pathname } = useLocation();
 	const { logout, authenticated } = useAuth();
 
 	const handleLogout = () => {
@@ -70,7 +72,15 @@ function NavMenu({ type, closeMenu }) {
 						</li>
 					</>
 				) : (
-					<NavItem exact={true} to="/login" text="Login" closeMenu={closeMenu} />
+					<NavItem
+						exact={true}
+						to={{
+							pathname: '/login',
+							state: { from: pathname }
+						}}
+						text="Login"
+						closeMenu={closeMenu}
+					/>
 				)}
 			</ul>
 		</div>

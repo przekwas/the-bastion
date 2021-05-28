@@ -3,6 +3,7 @@ import { PrivateRoute } from '../../shared/components';
 import {
 	Home,
 	Login,
+	Register,
 	Admin,
 	Errors,
 	AllCharacters,
@@ -50,14 +51,18 @@ function Routes() {
 				<CharacterEdit />
 			</PrivateRoute>
 
+			{/* auth routes */}
 			<Route exact path="/login">
 				<Login />
 			</Route>
-
+			<Route exact path="/register">
+				<Register />
+			</Route>
 			<PrivateRoute exact path="/admin">
 				<Admin />
 			</PrivateRoute>
 
+			{/* error routes */}
 			<Route exact path="/fuck">
 				<Errors />
 			</Route>

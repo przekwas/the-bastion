@@ -7,7 +7,12 @@ function PrivateRoute({ children, ...rest }) {
 	return authenticated ? (
 		<Route {...rest}>{children}</Route>
 	) : (
-		<Redirect to={{ pathname: '/login', state: 'You must be logged in to view this page.' }} />
+		<Redirect
+			to={{
+				pathname: '/login',
+				state: { error: 'You must be logged in to view this page.' }
+			}}
+		/>
 	);
 }
 

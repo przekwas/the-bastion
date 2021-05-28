@@ -3,6 +3,7 @@ export { default as BasePage } from './BasePage';
 export { default as PageTitle } from './PageTitle';
 export { default as Button } from './Button';
 export { default as Fab } from './Fab';
+export { default as InputGroup } from './InputGroup';
 export { default as FormInput } from './FormInput';
 export { default as FormLabel } from './FormLabel';
 export { default as LoaderCard } from './LoaderCard';
