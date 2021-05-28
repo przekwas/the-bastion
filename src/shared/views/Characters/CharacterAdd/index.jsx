@@ -1,6 +1,6 @@
 import { useForm } from '../../../hooks/useForm';
 import { useHistory } from 'react-router-dom';
-import { BasePage, FormLabel, FormInput, Button, Toast } from '../../../components';
+import { BasePage, FormLabel, FormInput, Button, Toast, PageTitle } from '../../../components';
 import { GiAutoRepair } from 'react-icons/gi';
 import * as charactersService from '../../../services/characters';
 
@@ -28,6 +28,7 @@ function CharacterAdd() {
 	return (
 		<BasePage>
 			<form className="flex flex-col w-full">
+				<PageTitle text="Add Character" />
 				<div className="flex flex-col w-full mb-5 lg:flex-row">
 					<div className="w-full mb-5 lg:pr-2">
 						<FormLabel>Name</FormLabel>
@@ -113,7 +114,7 @@ function CharacterAdd() {
 				</div>
 				<Button onClick={handleSubmit} color="blue" className="w-1/2 mx-auto mb-5">
 					<span className="flex items-center justify-center ">
-							<GiAutoRepair className="mr-2" /> Add Character
+							<GiAutoRepair className="mr-2 text-2xl" /> Add Character
 						</span>
 				</Button>
 			</form>

@@ -1,7 +1,15 @@
 import { useEffect } from 'react';
 import { useForm } from '../../../hooks/useForm';
 import { useHistory, useLocation, useParams, Link } from 'react-router-dom';
-import { BasePage, FormLabel, FormInput, Button, Toast, Modal } from '../../../components';
+import {
+	BasePage,
+	FormLabel,
+	FormInput,
+	Button,
+	Toast,
+	Modal,
+	PageTitle
+} from '../../../components';
 import { GiReturnArrow, GiSave, GiSparkyBomb, GiHolyHandGrenade } from 'react-icons/gi';
 import * as charactersService from '../../../services/characters';
 
@@ -84,6 +92,7 @@ function CharacterEdit() {
 	return (
 		<BasePage>
 			<form className="flex flex-col w-full">
+				<PageTitle text="Edit Character" />
 				<div className="flex flex-col w-full mb-5 lg:flex-row">
 					<div className="w-full mb-5 lg:pr-2">
 						<FormLabel>Name</FormLabel>
@@ -178,7 +187,7 @@ function CharacterEdit() {
 								state: state ? state : null
 							}}
 							className="flex items-center justify-center ">
-							<GiReturnArrow className="mr-2" /> Go back
+							<GiReturnArrow className="mr-2 text-2xl" /> Back
 						</Link>
 					</Button>
 					<Button
@@ -186,7 +195,7 @@ function CharacterEdit() {
 						color="indigo"
 						className="w-full mb-5 md:mb-0 md:w-1/4">
 						<span className="flex items-center justify-center ">
-							<GiSave className="mr-2" /> Save Changes
+							<GiSave className="mr-2 text-2xl" /> Save
 						</span>
 					</Button>
 					<Button
@@ -194,7 +203,7 @@ function CharacterEdit() {
 						color="red"
 						className="w-full mb-5 md:mb-0 md:w-1/4">
 						<span className="flex items-center justify-center ">
-							<GiSparkyBomb className="mr-2" /> Delete Character
+							<GiSparkyBomb className="mr-2 text-2xl" /> Delete
 						</span>
 					</Button>
 				</div>

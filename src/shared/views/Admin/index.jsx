@@ -1,11 +1,15 @@
-import { Link } from 'react-router-dom';
-import { BasePage } from '../../components';
+import { BasePage, PageTitle } from '../../components';
+import NoteSection from './NoteSection';
+import ProfileSection from './ProfileSection';
 
 function Admin() {
 	return (
 		<BasePage>
-			<div>Admin</div>
-            <Link to="/characters/add">Add Char</Link>
+			<div className="flex flex-col w-full">
+				<PageTitle text="Admin Dashboard" />
+				<ProfileSection />
+				<NoteSection />
+			</div>
 		</BasePage>
 	);
 }

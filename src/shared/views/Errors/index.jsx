@@ -30,7 +30,7 @@ function Errors() {
 							readOnly={true}
 							className="flex w-full p-4 mb-5 font-mono text-sm text-gray-100 bg-gray-600 rounded"
 							ref={messageRef}
-							defaultValue={state ? state : "your error handling failed, idiot"}
+							defaultValue={JSON.stringify(state)}
 						/>
 						<Button onClick={copyToClipboard} color="green">
 							<div className="flex items-center justify-between">

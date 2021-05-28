@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import { BasePage } from '../../../components';
+import { BasePage, PageTitle } from '../../../components';
 import CharacterCard from './CharacterCard';
 import * as charactersService from '../../../services/characters';
 
@@ -18,9 +18,7 @@ function AllCharacters() {
 	return (
 		<BasePage>
 			<div className="flex flex-col w-full">
-				<div className="self-center mb-5 text-2xl font-extrabold tracking-wide text-indigo-900">
-					Characters
-				</div>
+			<PageTitle text="Characters" />
 				<div>
 					{characters.map(character => (
 						<CharacterCard key={character.id} character={character} />

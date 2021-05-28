@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import { useForm } from '../../hooks/useForm';
 import { useAuth } from '../../hooks/useAuth';
-import { GiScrollUnfurled, GiLockedFortress } from 'react-icons/gi';
+import { GiScrollUnfurled, GiLockedFortress, GiJusticeStar } from 'react-icons/gi';
 import { Button, FormLabel, FormInput, BasePage, Toast } from '../../components';
 import InputGroup from './InputGroup';
 import * as usersService from '../../services/user';
@@ -66,7 +66,8 @@ function Login() {
 						/>
 					</InputGroup>
 				</div>
-				<Button color="blue" className="w-2/3 mt-5" onClick={handleSubmit}>
+				<Button color="blue" className="flex items-center justify-center w-2/3 mt-5" onClick={handleSubmit}>
+					<GiJusticeStar className="mr-2 text-2xl" />
 					Login
 				</Button>
 			</form>
