@@ -19,4 +19,13 @@ async function register(payload) {
 	}
 }
 
-export { login, register };
+async function getProfile() {
+	try {
+		const result = await baseService.get('/api/users/profile');
+		return result;
+	} catch (error) {
+		throw error;
+	}
+}
+
+export { login, register, getProfile };

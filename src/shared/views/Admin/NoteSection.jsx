@@ -1,7 +1,7 @@
 import { GiBarbute, GiSextant, GiClockwork, GiStabbedNote } from 'react-icons/gi';
 import NoteCard from './NoteCard';
 
-function NoteSection() {
+function NoteSection({ character_count, location_count, events_count, misc_notes_count }) {
 	return (
 		<div className="flex flex-col flex-wrap -mx-2 lg:flex-row">
 			<div className="w-full px-2 my-2 lg:w-1/2">
@@ -10,7 +10,7 @@ function NoteSection() {
 						<GiBarbute className="p-1 mr-5 text-6xl text-green-100 bg-green-500 rounded-full" />
 					}
 					label="characters added"
-					value="15"
+					value={character_count}
 					color="green"
 					to="/characters/add"
 				/>
@@ -21,7 +21,7 @@ function NoteSection() {
 						<GiSextant className="p-1 mr-5 text-6xl text-indigo-100 bg-indigo-500 rounded-full" />
 					}
 					label="locations added"
-					value="24"
+					value={location_count}
 					color="indigo"
 					to="/locations/add"
 				/>
@@ -32,7 +32,7 @@ function NoteSection() {
 						<GiClockwork className="p-1 mr-5 text-6xl text-blue-100 bg-blue-500 rounded-full" />
 					}
 					label="events added"
-					value="124"
+					value={events_count}
 					color="blue"
 					to="/events/add"
 				/>
@@ -43,7 +43,7 @@ function NoteSection() {
 						<GiStabbedNote className="p-1 mr-5 text-6xl text-pink-100 bg-pink-500 rounded-full" />
 					}
 					label="misc notes added"
-					value="1105"
+					value={misc_notes_count}
 					color="pink"
 					to="/notes/add"
 				/>
