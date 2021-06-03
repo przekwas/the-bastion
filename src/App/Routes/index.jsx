@@ -13,7 +13,8 @@ import {
 	AllLocations,
 	LocationDetails,
 	LocationAdd,
-	LocationEdit
+	LocationEdit,
+	Validate
 } from '../../shared/views';
 
 function Routes() {
@@ -57,6 +58,9 @@ function Routes() {
 			</Route>
 			<Route exact path="/register">
 				<Register />
+			</Route>
+			<Route exact path="/validate">
+				<Validate />
 			</Route>
 			<PrivateRoute exact path="/admin">
 				<Admin />

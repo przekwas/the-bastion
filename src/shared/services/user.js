@@ -12,8 +12,8 @@ async function login(payload) {
 
 async function register(payload) {
 	try {
-		const token = await baseService.post('/auth/register', payload);
-		setToken(token);
+		const { user_id } = await baseService.post('/auth/register', payload);
+		return user_id;
 	} catch (error) {
 		throw error;
 	}

@@ -2,7 +2,15 @@ import { useEffect, useState } from 'react';
 import { Redirect, useHistory } from 'react-router-dom';
 import { useForm } from '../../hooks/useForm';
 import { useAuth } from '../../hooks/useAuth';
-import { GiScrollUnfurled, GiLockedFortress, GiCoronation, GiCheckMark, GiFamilyTree, GiSundial, GiKing } from 'react-icons/gi';
+import {
+	GiScrollUnfurled,
+	GiLockedFortress,
+	GiCoronation,
+	GiCheckMark,
+	GiFamilyTree,
+	GiSundial,
+	GiKing
+} from 'react-icons/gi';
 import { Button, FormLabel, FormInput, BasePage, InputGroup } from '../../components';
 import * as usersService from '../../services/user';
 
@@ -16,7 +24,7 @@ function Register() {
 		delete values.confirmPassword;
 		usersService
 			.register(values)
-			.then(() => signin('/admin'))
+			.then(user_id => history.push('/validate', user_id))
 			.catch(e => history.push('/fuck', e.message));
 	}
 
