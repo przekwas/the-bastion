@@ -32,11 +32,15 @@ async function json(url, method = 'GET', body = {}) {
 			return response.json();
 		} else {
 			const errorResponse = await response.json();
-			console.log(errorResponse);
-			throw new Error(errorResponse.error.message);
+			if (response.status === 400) {
+				throw new Error('joi validation failed');
+			} else if (errorResponse && errorResponse.message) {
+				throw new Error(errorResponse.message);
+			} else if (errorResponse && errorResponse.error && errorResponse.error.message) {
+				throw new Error(errorResponse.error.message);
+			}
 		}
 	} catch (error) {
-		console.log('[error in fetch]', error);
 		throw error;
 	}
 }

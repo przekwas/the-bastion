@@ -28,38 +28,50 @@ function Register() {
 		usersService
 			.register(values)
 			.then(user_id =>
-				history.push('/validate', { user_id, discord_name: values.discord_name, email: values.email })
+				history.push('/validate', {
+					user_id,
+					discord_name: values.discord_name,
+					email: values.email
+				})
 			)
 			.catch(e => history.push('/fuck', e.message));
 	}
 
+	// error toasts to help validate
 	function validateInputs() {
+		let validationCheck = null,
+			toastMessage = null;
+
 		if (!values.email) {
-			Toast.error('Email input is required');
-			return false;
+			toastMessage = 'Email input is required';
+			validationCheck = false;
 		} else if (!values.username) {
-			Toast.error('Username input is required');
-			return false;
+			toastMessage = 'Username input is required';
+			validationCheck = false;
 		} else if (!values.first_name) {
-			Toast.error('First Name input is required');
-			return false;
+			toastMessage = 'First Name input is required';
+			validationCheck = false;
 		} else if (!values.last_name) {
-			Toast.error('Last Name input is required');
-			return false;
+			toastMessage = 'Last Name input is required';
+			validationCheck = false;
 		} else if (!values.discord_name) {
-			Toast.error('Discord Name input is required');
-			return false;
+			toastMessage = 'Discord Name input is required';
+			validationCheck = false;
 		} else if (!values.password) {
-			Toast.error('Password input is required');
-			return false;
+			toastMessage = 'Password input is required';
+			validationCheck = false;
 		} else if (!values.confirmPassword) {
-			Toast.error('Compare Password input is required');
-			return false;
+			toastMessage = 'Compare Password input is required';
+			validationCheck = false;
 		} else {
-			return true;
+			validationCheck = true;
 		}
+
+		toastMessage && Toast.error(toastMessage);
+		return validationCheck;
 	}
 
+	// modal for copying discord tag
 	function handleModalHelp() {
 		Modal.fire({
 			title: 'Examplename#1234',
@@ -76,7 +88,7 @@ function Register() {
 
 		if (values.password !== values.confirmPassword) {
 			setConfirmError('passwords do not match');
-		} else if (values.password.length < 3) {
+		} else if (values.password.length < 4) {
 			setConfirmError('that is a weak af password, do better idiot');
 		} else {
 			setConfirmError(null);
@@ -91,8 +103,8 @@ function Register() {
 	return (
 		<BasePage>
 			<form className="flex flex-col items-center justify-center w-full">
-				<small className="self-start text-xs font-light text-red-500">
-					all fields required *
+				<small className="self-center text-xs font-light text-red-500">
+					* all fields required *
 				</small>
 				<div className="w-full mb-6">
 					<FormLabel htmlFor="email">Email</FormLabel>
@@ -207,7 +219,7 @@ function Register() {
 				</div>
 				<Button
 					color="blue"
-					className="flex items-center justify-center w-2/3 mt-5"
+					className="flex items-center justify-center w-2/3 my-5"
 					onClick={handleSubmit}>
 					<GiCoronation className="mr-2 text-2xl" />
 					Register

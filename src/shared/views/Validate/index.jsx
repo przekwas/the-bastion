@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react';
 import { Redirect, useHistory, useLocation } from 'react-router-dom';
-import { BasePage, PageTitle, LoaderCard, Button } from '../../components';
+import { BasePage, PageTitle, LoaderCard, Button, OTPInput } from '../../components';
 import { useAuth } from '../../hooks/useAuth';
 import * as botService from '../../services/bot';
 
 function Validate() {
 	const history = useHistory();
 	const { state } = useLocation();
-	const { authenticated, signin } = useAuth();
+	const { signin } = useAuth();
 	const [validating, setValidating] = useState(false);
 	const [randomCode, setRandomCode] = useState('');
 
@@ -16,12 +16,12 @@ function Validate() {
 			.generateValidation(state)
 			.then(() => setValidating(true))
 			.catch(e => history.push('/fuck', e.message));
-	}, []);
+	}, [history, state]);
 
 	function handleClick(e) {
 		e.preventDefault();
 		botService
-			.validateConfirm({ random_code: randomCode, user_id: state.user_id })
+			.validateConfirm({ random_code: Number(randomCode), user_id: state.user_id })
 			.then(() => signin('/admin'))
 			.catch(e => history.push('/fuck', e.message));
 	}
@@ -40,28 +40,19 @@ function Validate() {
 		);
 	}
 
-	// already logged in check
-	if (authenticated) {
-		return <Redirect to="/admin" />;
-	}
-
 	return (
 		<BasePage>
-			<div className="flex flex-col">
+			<div className="flex flex-col items-center justify-center">
 				<PageTitle text="Enter 4 Digit Code" />
-				<div class="flex">
-					<input
-						onChange={e => setRandomCode(e.target.value)}
-						value={randomCode}
-						className="flex items-center w-12 h-16 mx-2 text-3xl font-thin text-center border rounded-lg"
-						maxlength="1"
-						max="9"
-						min="0"
-						inputmode="decimal"
-					/>
-				</div>
-
-				<Button onClick={handleClick} color="blue" className="mt-5">
+				<OTPInput
+					autoFocus
+					isNumberInput
+					length={4}
+					className="my-5"
+					inputClassName="w-16 h-16 mx-3 text-center text-3xl font-bold border-2 border-gray-700 rounded-lg"
+					onChangeOTP={otp => setRandomCode(otp)}
+				/>
+				<Button onClick={handleClick} color="blue" className="w-full my-5">
 					Validate
 				</Button>
 			</div>

@@ -10,10 +10,7 @@ function Login() {
 	const history = useHistory();
 	const { state } = useLocation();
 	const { signin, authenticated } = useAuth();
-	const { values, handleChanges, handleSubmit } = useForm(handleLogin, {
-		email: 'test@test.com',
-		password: 'password123'
-	});
+	const { values, handleChanges, handleSubmit } = useForm(handleLogin);
 
 	function handleLogin() {
 		usersService
@@ -58,6 +55,7 @@ function Login() {
 							type="email"
 							name="email"
 							autoComplete="email"
+							placeholder="falstad@stormhammer.com"
 						/>
 					</InputGroup>
 				</div>
@@ -71,6 +69,7 @@ function Login() {
 							type="password"
 							name="password"
 							autoComplete="current-password"
+							placeholder="imreallytheking"
 						/>
 					</InputGroup>
 				</div>
@@ -81,7 +80,11 @@ function Login() {
 					<GiJusticeStar className="mr-2 text-2xl" />
 					Login
 				</Button>
-				<Link to="/register" className="block my-10 text-sm text-indigo-600 underline justify-self-end">Don't have an account?  Create one!</Link>
+				<Link
+					to="/register"
+					className="block my-10 text-sm text-indigo-600 underline justify-self-end">
+					Don't have an account? Create one!
+				</Link>
 			</form>
 		</BasePage>
 	);
