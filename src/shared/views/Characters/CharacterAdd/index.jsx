@@ -114,8 +114,8 @@ function CharacterAdd() {
 				</div>
 				<Button onClick={handleSubmit} color="blue" className="w-1/2 mx-auto mb-5">
 					<span className="flex items-center justify-center ">
-							<GiAutoRepair className="mr-2 text-2xl" /> Add Character
-						</span>
+						<GiAutoRepair className="mr-2 text-2xl" /> Add Character
+					</span>
 				</Button>
 			</form>
 		</BasePage>

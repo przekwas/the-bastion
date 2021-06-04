@@ -5,6 +5,9 @@ import { ToastContainer } from 'react-toastify';
 import Routes from './Routes';
 
 function App() {
+	// tailwind debug screen plugin
+	process.env.REACT_APP_DEBUG_SCREENS && document.body.classList.add(process.env.REACT_APP_DEBUG_SCREENS);
+
 	return (
 		<>
 			<Router history={history}>

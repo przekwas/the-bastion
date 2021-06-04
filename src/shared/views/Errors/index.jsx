@@ -20,7 +20,7 @@ function Errors() {
 					error message and let him know at{' '}
 					<span className="font-semibold">luke@covalence.io</span>
 				</div>
-				{state && (
+				{state ? (
 					<>
 						<input
 							autoComplete="off"
@@ -31,6 +31,27 @@ function Errors() {
 							className="flex w-full p-4 mb-5 font-mono text-sm text-gray-100 bg-gray-600 rounded"
 							ref={messageRef}
 							defaultValue={JSON.stringify(state)}
+						/>
+						<Button onClick={copyToClipboard} color="green">
+							<div className="flex items-center justify-between">
+								<span className="mx-1 text-sm">copy to clipboard</span>
+								<GiScrollQuill className="mx-1 text-2xl" />
+							</div>
+						</Button>
+					</>
+				) : (
+					<>
+						<input
+							autoComplete="off"
+							autoCorrect="off"
+							autoCapitalize="off"
+							spellCheck="false"
+							readOnly={true}
+							className="flex w-full p-4 mb-5 font-mono text-sm text-gray-100 bg-gray-600 rounded"
+							ref={messageRef}
+							defaultValue={JSON.stringify(
+								'my error handling ... failed with an uncaught error smh'
+							)}
 						/>
 						<Button onClick={copyToClipboard} color="green">
 							<div className="flex items-center justify-between">
