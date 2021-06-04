@@ -12,7 +12,7 @@ async function login(payload) {
 
 async function register(payload) {
 	try {
-		const { user_id } = await baseService.post('/auth/register', payload);
+		const { user_id } = await baseService.post('/auth/register/the-bastion-wiki', payload);
 		return user_id;
 	} catch (error) {
 		throw error;
