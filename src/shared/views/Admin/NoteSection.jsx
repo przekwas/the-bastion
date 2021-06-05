@@ -26,7 +26,7 @@ function NoteSection({ character_count, location_count, events_count, misc_notes
 					to="/locations/add"
 				/>
 			</div>
-			<div className="w-full px-2 my-2 lg:w-1/2">
+			{/* <div className="w-full px-2 my-2 lg:w-1/2">
 				<NoteCard
 					icon={
 						<GiClockwork className="p-1 mr-5 text-6xl text-blue-100 bg-blue-500 rounded-full" />
@@ -47,7 +47,7 @@ function NoteSection({ character_count, location_count, events_count, misc_notes
 					color="pink"
 					to="/notes/add"
 				/>
-			</div>
+			</div> */}
 		</div>
 	);
 }
