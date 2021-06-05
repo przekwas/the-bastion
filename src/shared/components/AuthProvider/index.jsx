@@ -26,15 +26,7 @@ function AuthProvider({ children }) {
 			});
 	}, []);
 
-	if (authState.checking) {
-		return (
-			<main className="flex flex-col items-center justify-center min-h-screen px-2 lg:px-0">
-				<LoaderCard />
-				<LoaderCard />
-				<LoaderCard />
-			</main>
-		);
-	}
+	if (authState.checking) return <LoaderCard length={3} />;
 
 	return (
 		<AuthContext.Provider value={[authState, setAuthState]}>{children}</AuthContext.Provider>
