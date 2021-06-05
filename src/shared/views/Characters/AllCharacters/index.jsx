@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import { BasePage, PageTitle } from '../../../components';
+import { BasePage, PageTitle, LoaderCard } from '../../../components';
 import CharacterCard from './CharacterCard';
 import * as charactersService from '../../../services/characters';
 
@@ -15,10 +15,12 @@ function AllCharacters() {
 			.catch(e => history.push('/fuck', e.message));
 	}, [history]);
 
+	if (!characters.length) return <LoaderCard length={3} />;
+
 	return (
 		<BasePage>
 			<div className="flex flex-col w-full">
-			<PageTitle text="Characters" />
+				<PageTitle text="Characters" />
 				<div>
 					{characters.map(character => (
 						<CharacterCard key={character.id} character={character} />

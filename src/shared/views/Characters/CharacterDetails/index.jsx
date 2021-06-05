@@ -3,9 +3,8 @@ import { useState, useEffect } from 'react';
 import { useLocation, useParams, useHistory, Link } from 'react-router-dom';
 import { useAuth } from '../../../hooks/useAuth';
 import { GiReturnArrow, GiSettingsKnobs } from 'react-icons/gi';
-import { BasePage, LoaderCard } from '../../../components';
+import { BasePage, LoaderCard, DisplayRow } from '../../../components';
 import ReactMarkdown from 'react-markdown';
-import DisplayRow from './DisplayRow';
 import * as charactersService from '../../../services/characters';
 
 function CharacterDetails() {
@@ -24,17 +23,11 @@ function CharacterDetails() {
 			.catch(e => history.push('/fuck', e.message));
 	}, [state, details, characterid, history]);
 
-	if (!details) {
-		return (
-			<main className="flex flex-col items-center justify-center min-h-screen px-2 lg:px-0">
-				<LoaderCard />
-			</main>
-		);
-	}
+	if (!details) return <LoaderCard length={3} />;
 
 	return (
 		<BasePage>
-			<div className="flex flex-col items-center justify-center p-6 bg-gray-100 rounded">
+			<div className="flex flex-col items-center justify-center w-full p-6 bg-gray-100 rounded">
 				<div className="flex items-center justify-between w-full mb-5">
 					<Link
 						to="/characters"

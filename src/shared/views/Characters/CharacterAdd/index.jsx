@@ -1,6 +1,14 @@
 import { useForm } from '../../../hooks/useForm';
 import { useHistory } from 'react-router-dom';
-import { BasePage, FormLabel, FormInput, Button, Toast, PageTitle } from '../../../components';
+import {
+	BasePage,
+	FormLabel,
+	FormInput,
+	Button,
+	Toast,
+	PageTitle,
+	MarkdownTooltip
+} from '../../../components';
 import { GiAutoRepair } from 'react-icons/gi';
 import * as charactersService from '../../../services/characters';
 
@@ -94,16 +102,7 @@ function CharacterAdd() {
 						onChange={handleChanges}
 					/>
 					<div className="flex items-center justify-between">
-						<small className="text-gray-400">
-							<a
-								className="text-blue-500 underline"
-								target="_blank"
-								href="https://www.markdownguide.org/cheat-sheet/"
-								rel="noopener noreferrer">
-								Markdown
-							</a>{' '}
-							is supported.
-						</small>
+						<MarkdownTooltip />
 						<small
 							className={`text-sm ${
 								values.content?.length >= 10000 ? 'text-red-500' : 'text-gray-400'
