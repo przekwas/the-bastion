@@ -8,7 +8,10 @@ A wikipedia-style site made by [Luke Przekwas](https://github.com/przekwas) spec
 
 ## Release Versions
 
-#### v1.0 (current release)
+#### v1.1 (current release)
+- correct counts on your added content in admin dashboard
+
+#### v1.0
 - locations features added
 - characters features added
 - login and register features added
@@ -21,7 +24,6 @@ A wikipedia-style site made by [Luke Przekwas](https://github.com/przekwas) spec
 - events features
 - misc notes features
 - finishing dashboard
-	- correct counts on your added content
 	- edit profile information e.g. reset password
 	- list what you've added for quick edit access
 - wiki bot features

@@ -22,6 +22,18 @@ const NAV_LINKS = [
 		exact: false,
 		to: '/locations',
 		text: 'Locations'
+	},
+	{
+		id: 4,
+		exact: false,
+		to: '/events',
+		text: 'Events'
+	},
+	{
+		id: 5,
+		exact: false,
+		to: '/notes',
+		text: 'Notes'
 	}
 ];
 
