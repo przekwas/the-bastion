@@ -15,12 +15,13 @@ function EventCard({ event }) {
 						{event.name}
 					</Link>
 					<div className="flex flex-col text-xs font-semibold text-gray-500">
-						<span>{event.race}</span>
-						<span>
-							{event.class}{' '}
-							{event.specialty && <span> - {event.specialty}</span>}
-						</span>
+						<span>{event.time}</span>
 					</div>
+					{event.location_id && (
+						<div className="flex flex-col text-xs font-semibold text-gray-500">
+							<span>{event.location_id}</span>
+						</div>
+					)}
 				</div>
 				<div className="flex items-center justify-end w-1/3">
 					<img
@@ -29,8 +30,9 @@ function EventCard({ event }) {
 						alt="event avatar"
 					/>
 				</div>
-			</div>	
-			<ReactMarkdown className="prose-sm prose" children={event.content.substring(0, 150)} /> ...
+			</div>
+			<ReactMarkdown className="prose-sm prose" children={event.content.substring(0, 150)} />{' '}
+			...
 		</div>
 	);
 }
