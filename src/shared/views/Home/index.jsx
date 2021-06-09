@@ -8,7 +8,10 @@ A wikipedia-style site made by [Luke Przekwas](https://github.com/przekwas) spec
 
 ## Release Versions
 
-#### v1.3 (current release)
+#### v1.3.1 (current release)
+- fixed typos on edit form titles
+
+#### v1.3
 - notes features added
 - 404 error page customized (try http://the-bastion-wiki.herokuapp.com/1234 for an example)
 

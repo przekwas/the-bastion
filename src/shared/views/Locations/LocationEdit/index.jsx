@@ -88,7 +88,7 @@ function LocationEdit() {
 	return (
 		<BasePage>
 			<form className="flex flex-col w-full">
-				<PageTitle text="Edit Character" />
+				<PageTitle text="Edit Location" />
 				<div className="flex flex-col w-full mb-5 lg:flex-row">
 					<div className="w-full mb-5 lg:pr-2">
 						<FormLabel>Name</FormLabel>
