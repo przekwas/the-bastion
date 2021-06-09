@@ -1,6 +1,9 @@
 import { useEffect } from 'react';
 import { useForm } from '../../../hooks/useForm';
 import { useHistory, useLocation, useParams, Link } from 'react-router-dom';
+import { locationsService } from '../../../services';
+import { GiReturnArrow, GiSave, GiSparkyBomb, GiHolyHandGrenade } from 'react-icons/gi';
+
 import {
 	BasePage,
 	FormLabel,
@@ -11,8 +14,6 @@ import {
 	PageTitle,
 	MarkdownTooltip
 } from '../../../components';
-import { GiReturnArrow, GiSave, GiSparkyBomb, GiHolyHandGrenade } from 'react-icons/gi';
-import * as locationsService from '../../../services/locations';
 
 function LocationEdit() {
 	const history = useHistory();

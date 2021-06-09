@@ -1,11 +1,12 @@
 import dayjs from 'dayjs';
+import ReactMarkdown from 'react-markdown';
 import { useState, useEffect } from 'react';
 import { useLocation, useParams, useHistory, Link } from 'react-router-dom';
 import { useAuth } from '../../../hooks/useAuth';
+import { eventsService } from '../../../services';
 import { GiReturnArrow, GiSettingsKnobs } from 'react-icons/gi';
+
 import { BasePage, LoaderCard, DisplayRow } from '../../../components';
-import ReactMarkdown from 'react-markdown';
-import * as eventsServices from '../../../services/events';
 
 function EventDetails() {
 	const history = useHistory();
@@ -17,7 +18,7 @@ function EventDetails() {
 
 	useEffect(() => {
 		if (details) return;
-		eventsServices
+		eventsService
 			.getOne(eventid)
 			.then(data => setDetails(data))
 			.catch(e => history.push('/fuck', e.message));

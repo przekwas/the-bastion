@@ -15,22 +15,12 @@ function NoteCard({ note }) {
 						{note.name}
 					</Link>
 					<div className="flex flex-col text-xs font-semibold text-gray-500">
-						<span>{note.race}</span>
-						<span>
-							{note.class}{' '}
-							{note.specialty && <span> - {note.specialty}</span>}
-						</span>
+						<span>{note.name}</span>
 					</div>
 				</div>
-				<div className="flex items-center justify-end w-1/3">
-					<img
-						className="object-cover w-24 h-24 p-1 border border-gray-300 rounded-sm md:w-32 md:h-32"
-						src={note.avatar_url}
-						alt="note avatar"
-					/>
-				</div>
-			</div>	
-			<ReactMarkdown className="prose-sm prose" children={note.content.substring(0, 150)} /> ...
+			</div>
+			<ReactMarkdown className="prose-sm prose" children={note.content.substring(0, 150)} />{' '}
+			...
 		</div>
 	);
 }

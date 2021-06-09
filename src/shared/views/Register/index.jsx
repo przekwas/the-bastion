@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import { Redirect, useHistory } from 'react-router-dom';
 import { useForm } from '../../hooks/useForm';
 import { useAuth } from '../../hooks/useAuth';
+import { userService } from '../../services';
+
 import {
 	GiScrollUnfurled,
 	GiLockedFortress,
@@ -13,7 +15,6 @@ import {
 	GiRobe
 } from 'react-icons/gi';
 import { Button, FormLabel, FormInput, BasePage, InputGroup, Toast, Modal } from '../../components';
-import * as usersService from '../../services/user';
 
 function Register() {
 	const history = useHistory();
@@ -25,7 +26,7 @@ function Register() {
 		if (!validateInputs()) return;
 
 		delete values.confirmPassword;
-		usersService
+		userService
 			.register(values)
 			.then(user_id =>
 				history.push('/validate', {

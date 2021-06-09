@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 import { Redirect, useHistory, useLocation } from 'react-router-dom';
-import { BasePage, PageTitle, LoaderCard, Button, OTPInput } from '../../components';
 import { useAuth } from '../../hooks/useAuth';
-import * as botService from '../../services/bot';
+import { botService } from '../../services';
+
+import { BasePage, PageTitle, LoaderCard, Button, OTPInput } from '../../components';
 
 function Validate() {
 	const history = useHistory();

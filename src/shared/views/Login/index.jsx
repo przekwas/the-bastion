@@ -2,9 +2,10 @@ import { useEffect } from 'react';
 import { Redirect, useHistory, useLocation, Link } from 'react-router-dom';
 import { useForm } from '../../hooks/useForm';
 import { useAuth } from '../../hooks/useAuth';
+import { userService } from '../../services';
 import { GiScrollUnfurled, GiLockedFortress, GiJusticeStar } from 'react-icons/gi';
+
 import { Button, FormLabel, FormInput, BasePage, Toast, InputGroup } from '../../components';
-import * as usersService from '../../services/user';
 
 function Login() {
 	const history = useHistory();
@@ -13,7 +14,7 @@ function Login() {
 	const { values, handleChanges, handleSubmit } = useForm(handleLogin);
 
 	function handleLogin() {
-		usersService
+		userService
 			.login(values)
 			.then(() => {
 				// route to admin dashboard by default

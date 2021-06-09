@@ -1,5 +1,8 @@
 import { useForm } from '../../../hooks/useForm';
 import { useHistory } from 'react-router-dom';
+import { GiAutoRepair } from 'react-icons/gi';
+import { eventsService } from '../../../services';
+
 import {
 	BasePage,
 	FormLabel,
@@ -9,8 +12,6 @@ import {
 	PageTitle,
 	MarkdownTooltip
 } from '../../../components';
-import { GiAutoRepair } from 'react-icons/gi';
-import * as eventsServices from '../../../services/events';
 
 function EventAdd() {
 	const history = useHistory();
@@ -22,7 +23,7 @@ function EventAdd() {
 		} else if (!values.content) {
 			Toast.error('Content input is required');
 		} else {
-			eventsServices
+			eventsService
 				.addNew(values)
 				.then(id => history.push(`/events/${id}`, values))
 				.catch(e => history.push('/fuck', e.message));

@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
+import { eventsService } from '../../../services';
+
 import { BasePage, PageTitle, LoaderCard } from '../../../components';
 import EventCard from './EventCard';
-import * as eventsService from '../../../services/events';
 
 function AllEvents() {
 	const history = useHistory();
@@ -32,4 +33,3 @@ function AllEvents() {
 }
 
 export default AllEvents;
-

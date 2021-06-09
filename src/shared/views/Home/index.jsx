@@ -8,7 +8,11 @@ A wikipedia-style site made by [Luke Przekwas](https://github.com/przekwas) spec
 
 ## Release Versions
 
-#### v1.2 (current release)
+#### v1.3 (current release)
+- notes features added
+- 404 error page customized (try http://the-bastion-wiki.herokuapp.com/1234 for an example)
+
+#### v1.2
 - events features added 
 
 #### v1.1
@@ -26,7 +30,6 @@ A wikipedia-style site made by [Luke Przekwas](https://github.com/przekwas) spec
 ### Site Roadmap
 - events features
 	- drop down for location match
-- misc notes features
 - finishing dashboard
 	- edit profile information e.g. reset password
 	- list what you've added for quick edit access

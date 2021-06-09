@@ -1,6 +1,9 @@
 import { useEffect } from 'react';
 import { useForm } from '../../../hooks/useForm';
 import { useHistory, useLocation, useParams, Link } from 'react-router-dom';
+import { charactersService } from '../../../services';
+import { GiReturnArrow, GiSave, GiSparkyBomb, GiHolyHandGrenade } from 'react-icons/gi';
+
 import {
 	BasePage,
 	FormLabel,
@@ -11,8 +14,6 @@ import {
 	PageTitle,
 	MarkdownTooltip
 } from '../../../components';
-import { GiReturnArrow, GiSave, GiSparkyBomb, GiHolyHandGrenade } from 'react-icons/gi';
-import * as charactersService from '../../../services/characters';
 
 function CharacterEdit() {
 	const history = useHistory();

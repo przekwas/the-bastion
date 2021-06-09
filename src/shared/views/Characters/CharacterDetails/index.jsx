@@ -2,10 +2,11 @@ import dayjs from 'dayjs';
 import { useState, useEffect } from 'react';
 import { useLocation, useParams, useHistory, Link } from 'react-router-dom';
 import { useAuth } from '../../../hooks/useAuth';
+import { charactersService } from '../../../services';
 import { GiReturnArrow, GiSettingsKnobs } from 'react-icons/gi';
+
 import { BasePage, LoaderCard, DisplayRow } from '../../../components';
 import ReactMarkdown from 'react-markdown';
-import * as charactersService from '../../../services/characters';
 
 function CharacterDetails() {
 	const history = useHistory();

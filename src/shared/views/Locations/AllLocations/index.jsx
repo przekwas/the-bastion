@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
+import { locationsService } from '../../../services';
+
 import { BasePage, PageTitle, LoaderCard } from '../../../components';
-import * as locationsService from '../../../services/locations';
 import LocationCard from './LocationCard';
 
 function AllLocations() {

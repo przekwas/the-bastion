@@ -1,11 +1,12 @@
 import dayjs from 'dayjs';
+import ReactMarkdown from 'react-markdown';
 import { useState, useEffect } from 'react';
 import { useLocation, useParams, useHistory, Link } from 'react-router-dom';
 import { useAuth } from '../../../hooks/useAuth';
+import { locationsService } from '../../../services';
 import { GiReturnArrow, GiSettingsKnobs } from 'react-icons/gi';
+
 import { BasePage, LoaderCard, DisplayRow } from '../../../components';
-import ReactMarkdown from 'react-markdown';
-import * as locationsService from '../../../services/locations';
 
 function LocationDetails() {
 	const history = useHistory();

@@ -1,5 +1,8 @@
 import { useForm } from '../../../hooks/useForm';
 import { useHistory } from 'react-router-dom';
+import { locationsService } from '../../../services';
+import { GiAutoRepair } from 'react-icons/gi';
+
 import {
 	BasePage,
 	FormLabel,
@@ -9,8 +12,6 @@ import {
 	PageTitle,
 	MarkdownTooltip
 } from '../../../components';
-import { GiAutoRepair } from 'react-icons/gi';
-import * as locationsService from '../../../services/locations';
 
 function LocationAdd() {
 	const history = useHistory();

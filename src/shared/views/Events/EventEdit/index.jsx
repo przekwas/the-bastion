@@ -1,6 +1,9 @@
 import { useEffect } from 'react';
 import { useForm } from '../../../hooks/useForm';
 import { useHistory, useLocation, useParams, Link } from 'react-router-dom';
+import { eventsService } from '../../../services';
+import { GiReturnArrow, GiSave, GiSparkyBomb, GiHolyHandGrenade } from 'react-icons/gi';
+
 import {
 	BasePage,
 	FormLabel,
@@ -11,8 +14,6 @@ import {
 	PageTitle,
 	MarkdownTooltip
 } from '../../../components';
-import { GiReturnArrow, GiSave, GiSparkyBomb, GiHolyHandGrenade } from 'react-icons/gi';
-import * as eventsService from '../../../services/events';
 
 function EventEdit() {
 	const history = useHistory();
@@ -55,7 +56,7 @@ function EventEdit() {
 				.then(() => history.push(`/events/${eventid}`))
 				.catch(e => history.push('/fuck', e.message));
 		}
-	};	 
+	};
 
 	const handleDeleteLocation = e => {
 		e.preventDefault();
