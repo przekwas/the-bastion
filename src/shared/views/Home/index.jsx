@@ -6,6 +6,17 @@ const markdown = `
 
 A wikipedia-style site made by [Luke Przekwas](https://github.com/przekwas) specifically to help our awesome Dungeon Master catalogue the adventures of his homebrew world.  This is our one stop shop for all content related to our lore.  Send feedback, bugs, style issues, and anything else you'd like to see!
 
+## Site Roadmap
+- events features
+	- drop down for location match
+- finishing dashboard
+	- edit profile information e.g. reset password
+	- list what you've added for quick edit access
+- wiki bot features
+	- pinging channel on new additions or updates
+- image uploading capability
+- markdown guide video
+
 ## Release Versions
 
 #### v1.3.1 (current release)
@@ -27,19 +38,6 @@ A wikipedia-style site made by [Luke Przekwas](https://github.com/przekwas) spec
 - login and register features added
 	- two factor authentication via discord "Wiki Bot" added
 - admin dashboard partially added
-
-&nbsp;
-
-### Site Roadmap
-- events features
-	- drop down for location match
-- finishing dashboard
-	- edit profile information e.g. reset password
-	- list what you've added for quick edit access
-- wiki bot features
-	- pinging channel on new additions or updates
-- image uploading capability
-- markdown guide video
 `;
 
 function Home() {

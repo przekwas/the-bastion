@@ -38,6 +38,10 @@ function Login() {
 		Toast.error(state.error);
 	}, [state]);
 
+	useEffect(() => {
+		if (authenticated) history.push('/admin');
+	}, [authenticated])
+
 	// already logged in check
 	if (authenticated) {
 		return <Redirect to="/admin" />;
