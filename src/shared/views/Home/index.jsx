@@ -7,6 +7,8 @@ const markdown = `
 A wikipedia-style site made by [Luke Przekwas](https://github.com/przekwas) specifically to help our awesome Dungeon Master catalogue the adventures of his homebrew world.  This is our one stop shop for all content related to our lore.  Send feedback, bugs, style issues, and anything else you'd like to see!
 
 ## Site Roadmap
+- **Suggested by Patrick**
+	- video embedding for resources
 - events features
 	- drop down for location match
 - finishing dashboard
